@@ -14,6 +14,7 @@ export class Post {
         <div class="lizard-card">
         <img class="img-fluid"
         src="${this.image}"
+        alt="${this.title}">
         <div class="d-flex justify-content-between align-items-center p-4">
         <h3>${this.title}</h3>
         <div class="d-flex justify-content-end align-items-center">
