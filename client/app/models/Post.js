@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js"
+import { Account } from "./Account.js"
 
 export class Post {
   constructor(data) {
@@ -44,39 +45,48 @@ export class Post {
   }
 
   get activePostTemplate() {
+    let deleteButton = ''
+    // @ts-ignore
+    if (AppState.account.id == this.creatorId) deleteButton = `<button onclick="app.PostsController.destroyPost('${this.id}')" class="btn btn-danger me-4"><i class="mdi mdi-delete"></i></button>`
     return `
+    <div class="modal-header">
+      <h5 class="modal-title" id="createSaliModalLabel">
+        <div class="d-flex justify-content-between align-items-center py-2">
+          <img class="rounded-circle user-image"
+            src="${this.creator.picture}"
+            alt="${this.creator.name}"
+            title="${this.creator.name}">
+          <h3>${this.title}</h3>
+        </div>
+      </h5>
+      <div class="d-flex align-items-center">
+      ${deleteButton}
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="modal-body">
       <div class="container-fluid">
-      <section class="row">
-        <div class="col-8">
-          <img class="img-fluid"
-            src="${this.image}"
-            alt="${this.title}">
-          <section class="row">
-            <div class="col-12 d-flex justify-content-between align-items-center py-2">
-              <h3>${this.title}</h3>
-              <div class="d-flex align-items-center">
-                <img class="rounded-circle user-image"
-                  src="${this.creator.picture}"
-                  alt="${this.creator.name}">
-                <p class="ms-2">${this.creator.name}</p>
-              </div>
-            </div>
+        <section class="row">
+          <div class="col-8">
+            <img class="img-fluid"
+              src="${this.image}"
+              alt="${this.title}">
+          <section class="row">      
             <div class="col-12 py-2">
               <p>${this.body}</p>
             </div>
           </section>
         </div>
-
         <div class="col-4">
           <h2>Comments</h2>
           <section class="row">
             ${this.commentsTemplate}
           </section>
         </div>
-
       </section>
     </div>
-      `
+  </div>      
+`
   }
 
   get commentsTemplate() {
@@ -90,6 +100,9 @@ export class Post {
         <p class="ms-2">
           ${comment.body}
         </p>
+        <div>
+          <button class="btn"><i class=" mdi mdi-delete text-danger"></i></button>
+        </div>
       </div>
     </div>
     `)

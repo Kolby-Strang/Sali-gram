@@ -13,7 +13,7 @@ export const router = [
   {
     path: '',
     controller: [PostsController, LikesController],
-    view: null
+    view: undefined
   },
   {
     path: '#/about',
