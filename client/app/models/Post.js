@@ -6,6 +6,9 @@ export class Post {
         this.image = data.image
         this.creatorId = data.creatorId
         this.creator = data.creator
+        this.likeCount = data.likeCount
+        this.createdAt = new Date(data.createdAt)
+        this.updatedAt = new Date(data.updatedAt)
     }
 
     get postCardTemplate() {
@@ -25,7 +28,8 @@ export class Post {
         </div>
         </div>
         <div class="pb-3 ps-4">
-        <i class="mdi mdi-heart"></i>
+        <i class="mdi mdi-heart" ${this.likeCount} ></i>
+        <p>Posted at ${this.createdAt.toLocaleDateString()}</p>
         </div>
     </div>
     </div>
