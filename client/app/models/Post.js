@@ -13,25 +13,28 @@ export class Post {
 
   get postCardTemplate() {
     return `
-    <div class="col-4 mt-2">
-        <div class="lizard-card">
-        <img class="img-fluid"
-        src="${this.image}"
-        alt="${this.title}">
-        <div class="d-flex justify-content-between align-items-center p-4">
-        <h3>${this.title}</h3>
-        <div class="d-flex justify-content-end align-items-center">
-            <img class="rounded-circle user-image"
+    <div class="col-lg-4 col-xl-3 col-md-6 col-12 mt-2">
+      <div class="lizard-card">
+        <div class="position-relative">
+          <img class="img-fluid sally-picture"
+            src="${this.image}"
+            alt="${this.title}">
+          <img class="rounded-circle user-image-absolute"
             src="${this.creator.picture}"
             alt="user">
-            <p class="mx-2">${this.creator.name}</p>
         </div>
+        <div class="h-25 py-3 px-4 d-flex justify-content-between align-items-center">
+          <div>
+            <p class="fs-3 word-wrap">${this.title}</p>
+            <p>Posted at ${this.createdAt.toLocaleDateString()}</p>
+          </div>
+          <div>
+          <button onclick="app.LikesController.likePost('${this.id}')" class="btn btn-outline-danger">
+            <i class="mdi mdi-heart">${this.likeCount}</i>
+          </button>
+          </div>
         </div>
-        <div class="pb-3 ps-4">
-        <i class="mdi mdi-heart" ${this.likeCount} ></i>
-        <p>Posted at ${this.createdAt.toLocaleDateString()}</p>
-        </div>
-    </div>
+      </div>
     </div>
     `
   }
