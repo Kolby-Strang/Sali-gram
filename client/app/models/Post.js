@@ -17,6 +17,7 @@ export class Post {
       <div class="lizard-card">
         <div class="position-relative">
           <img class="img-fluid sally-picture"
+            onclick="app.PostsController.setActivePost('${this.id}')"
             src="${this.image}"
             alt="${this.title}">
           <img class="rounded-circle user-image-absolute"
@@ -83,4 +84,5 @@ export class Post {
     </div>
       `
   }
+
 }
