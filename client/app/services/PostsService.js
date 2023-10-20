@@ -4,6 +4,13 @@ import { api } from "./AxiosService.js"
 
 
 class PostsService {
+    async destroyComment(commentId) {
+        await api.delete(`api/comments/${commentId}`)
+        const comments = AppState.comments
+        const indexToDelete = comments.findIndex(comment => comment.id == commentId)
+        comments.splice(indexToDelete, 1)
+        AppState.emit('comments')
+    }
     async destroyPost(postId) {
         await api.delete(`api/posts/${postId}`)
         const indexToDelete = AppState.posts.findIndex(post => post.id == postId)
@@ -37,8 +44,16 @@ class PostsService {
         AppState.activePost = foundPost
         const comments = await api.get(`api/posts/${postId}/comments`)
         AppState.comments = comments.data
-        console.log(AppState.comments)
+
     }
+    async createComment(commentData) {
+        commentData.postId = AppState.activePost.id
+        const comment = await api.post('api/comments', commentData)
+
+        AppState.comments.push(comment.data)
+        AppState.emit('comments')
+    }
+
 }
 
 

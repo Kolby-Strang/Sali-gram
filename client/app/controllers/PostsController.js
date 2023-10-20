@@ -18,7 +18,6 @@ function _drawPosts() {
 }
 
 
-
 export class PostsController {
     constructor() {
         this.getPosts()
@@ -70,6 +69,27 @@ export class PostsController {
         } catch (error) {
             Pop.error(error)
             console.error(error);
+        }
+    }
+
+    async destroyComment(commentId) {
+        try {
+            await postsService.destroyComment(commentId)
+        } catch (error) {
+            Pop.error(error)
+            console.error(error);
+        }
+    }
+
+    async createComment(event) {
+        try {
+            event.preventDefault()
+            const form = event.target
+            const commentData = getFormData(form)
+            await postsService.createComment(commentData)
+        } catch (error) {
+            Pop.error(error)
+            console.log(error);
         }
     }
 }

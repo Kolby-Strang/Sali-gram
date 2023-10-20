@@ -79,6 +79,10 @@ export class Post {
         </div>
         <div class="col-4">
           <h2>Comments</h2>
+          <form onsubmit="app.PostsController.createComment(event)">
+            <input type="text" id="commentBody" name="body" minlength="1" maxlength="300">
+            <button type="submit" class="btn btn-primary">+</button>
+          </form>
           <section class="row">
             ${this.commentsTemplate}
           </section>
@@ -101,7 +105,7 @@ export class Post {
           ${comment.body}
         </p>
         <div>
-          <button class="btn"><i class=" mdi mdi-delete text-danger"></i></button>
+          <button onclick="app.PostsController.destroyComment('${comment.id}')" class="btn"><i class=" mdi mdi-delete text-danger"></i></button>
         </div>
       </div>
     </div>
