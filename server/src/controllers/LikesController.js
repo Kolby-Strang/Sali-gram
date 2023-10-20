@@ -8,6 +8,18 @@ export class LikesController extends BaseController {
         this.router
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createLike)
+            .delete('/:likeId', this.destroyLike)
+    }
+
+    async destroyLike(req, res, next) {
+        try {
+            const likeId = req.params.likeId
+            const userId = req.userInfo.id
+            const like = await likesService.destroyLike(likeId, userId)
+            return res.send(like)
+        } catch (error) {
+            next(error)
+        }
     }
     async createLike(req, res, next) {
         try {
@@ -20,4 +32,6 @@ export class LikesController extends BaseController {
             next(error)
         }
     }
+
+
 }
