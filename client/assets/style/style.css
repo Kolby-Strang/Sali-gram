@@ -17,7 +17,7 @@ p {
   box-shadow: 1px 0px 5px black;
 }
 
-.modal-content {
+.modal-dialog {
   min-width: 60vw;
 
 }
