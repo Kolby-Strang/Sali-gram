@@ -11,3 +11,5 @@ LikeSchema.virtual('creator', {
     ref: 'Account',
     justOne: true
 })
+
+LikeSchema.index({ userId: 1, postId: 1 }, { unique: true })

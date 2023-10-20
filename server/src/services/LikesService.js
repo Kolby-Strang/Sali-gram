@@ -10,13 +10,10 @@ class LikesService {
         const likes = await dbContext.Like.find({ postId }).populate('creator')
         return likes
     }
-    async destroyLike(likeId, userId) {
-        const like = await dbContext.Like.findById(likeId)
+    async destroyLike(postId, userId) {
+        const like = await dbContext.Like.findOne({ postId, userId })
         if (!like) {
-            throw new BadRequest(`Invalid LIke Id ${likeId}`)
-        }
-        if (like.userId != userId) {
-            throw new Forbidden('User Id does not match' + userId)
+            throw new BadRequest(`Invalid LIke Id ${postId}`)
         }
         await like.remove()
         return like
