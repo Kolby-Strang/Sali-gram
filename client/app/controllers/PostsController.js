@@ -22,13 +22,13 @@ export class PostsController {
     constructor() {
         this.getPosts()
         AppState.on('posts', _drawPosts)
-        AppState.on('activePost', _drawActivePost)
+        AppState.on('comments', _drawActivePost)
     }
 
 
-    setActivePost(postId) {
+    async setActivePost(postId) {
         try {
-            postsService.setActivePost(postId)
+            await postsService.setActivePost(postId)
         } catch (error) {
             Pop.error(error)
             console.error(error);

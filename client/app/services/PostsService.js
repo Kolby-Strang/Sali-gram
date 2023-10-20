@@ -19,6 +19,9 @@ class PostsService {
             throw new Error(`Bad Post id ${postId}`)
         }
         AppState.activePost = foundPost
+        const comments = await api.get(`api/posts/${postId}/comments`)
+        AppState.comments = comments.data
+        console.log(AppState.comments)
     }
 }
 
