@@ -5,8 +5,8 @@ import { setHTML } from "../utils/Writer.js";
 
 function _drawActivePost() {
     const post = AppState.activePost
-    setHTML('activeBird',)
-
+    setHTML('activePost', post.activePostTemplate)
+    bootstrap.Modal.getOrCreateInstance('#activePostModal').show()
 }
 
 function _drawPosts() {
@@ -21,8 +21,6 @@ function _drawPosts() {
 export class PostsController {
     constructor() {
         this.getPosts()
-
-
         AppState.on('posts', _drawPosts)
         AppState.on('activePost', _drawActivePost)
     }
