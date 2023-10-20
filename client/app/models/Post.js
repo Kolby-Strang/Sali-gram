@@ -13,8 +13,7 @@ export class Post {
     <div class="col-4 mt-2">
         <div class="lizard-card">
         <img class="img-fluid"
-        src="https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?auto=format&fit=crop&q=80&w=3024&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="${this.title}">
+        src="${this.image}"
         <div class="d-flex justify-content-between align-items-center p-4">
         <h3>${this.title}</h3>
         <div class="d-flex justify-content-end align-items-center">
