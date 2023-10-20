@@ -2,6 +2,13 @@ import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class PostsService {
+    async getPostById(postId) {
+        const post = await dbContext.Post.findById(postId)
+        if (!post) {
+            throw new BadRequest(`Could not find this post ${postId}`)
+        }
+        return post
+    }
     async destroyPost(postToBeDestroyed, userId) {
         const destroyedPost = await dbContext.Post.findById(postToBeDestroyed)
         if (!destroyedPost) {
