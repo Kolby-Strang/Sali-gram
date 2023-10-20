@@ -9,6 +9,7 @@ export class PostsController extends BaseController {
             .get('', this.getPosts)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createPost)
+            .delete('/:postId', this.destroyPost)
     }
     async createPost(req, res, next) {
         try {
@@ -25,6 +26,17 @@ export class PostsController extends BaseController {
         try {
             const posts = await postsService.getPosts()
             return res.send(posts)
+        } catch (error) {
+            next(error)
+        }
+    }
+    // TODO put function for posts as a stretch goal
+    async destroyPost(req, res, next) {
+        try {
+            const postToBeDestroyed = req.params.postId
+            const userId = req.userInfo.id
+            const post = await postsService.destroyPost(postToBeDestroyed, userId)
+            return res.send(post)
         } catch (error) {
             next(error)
         }
