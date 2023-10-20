@@ -95,7 +95,11 @@ export class Post {
 
   get commentsTemplate() {
     let content = ''
-    AppState.comments.forEach(comment => content += `
+    AppState.comments.forEach(comment => {
+
+      let deleteButton = ''
+      if (AppState.account?.id == comment.userId) deleteButton = `<button onclick="app.PostsController.destroyComment('${comment.id}')" class="btn"><i class=" mdi mdi-delete text-danger"></i></button>`
+      content += `
     <div class="col-12 card p-2 my-1">
       <div class="d-flex align-items-center">
         <img class="rounded-circle user-image"
@@ -105,11 +109,11 @@ export class Post {
           ${comment.body}
         </p>
         <div>
-          <button onclick="app.PostsController.destroyComment('${comment.id}')" class="btn"><i class=" mdi mdi-delete text-danger"></i></button>
+          ${deleteButton}
         </div>
       </div>
     </div>
-    `)
+    `})
     return content
   }
 }
