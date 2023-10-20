@@ -16,3 +16,8 @@ p {
   border-radius: 5px;
   box-shadow: 1px 0px 5px black;
 }
+
+.modal-content {
+  min-width: 60vw;
+
+}
