@@ -5,6 +5,7 @@ export class Post {
         this.body = data.body
         this.image = data.image
         this.creatorId = data.creatorId
+        this.creator = data.create
     }
 
     get postCardTemplate() {
