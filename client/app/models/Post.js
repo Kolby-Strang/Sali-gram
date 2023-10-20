@@ -83,7 +83,7 @@ export class Post {
     let content = ''
     AppState.comments.forEach(comment => content += `
     <div class="col-12 card p-2 my-1">
-      <div class="d-flex justify-content-end align-items-center">
+      <div class="d-flex align-items-center">
         <img class="rounded-circle user-image"
         src="${comment.creator.picture}"
         alt="">
