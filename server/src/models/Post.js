@@ -12,5 +12,11 @@ PostSchema.virtual("creator", {
     foreignField: "_id",
     ref: "Account",
     justOne: true
-}
-)
+})
+
+PostSchema.virtual("likeCount", {
+    localField: "_id",
+    foreignField: "postId",
+    ref: "Like",
+    count: true
+})

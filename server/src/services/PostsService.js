@@ -7,7 +7,7 @@ class PostsService {
         if (!post) {
             throw new BadRequest(`Could not find this post ${postId}`)
         }
-        return post.populate("creator")
+        return post.populate("likeCount creator")
     }
     async destroyPost(postToBeDestroyed, userId) {
         const destroyedPost = await dbContext.Post.findById(postToBeDestroyed)
@@ -21,11 +21,11 @@ class PostsService {
         return destroyedPost
     }
     async getPosts() {
-        const posts = await dbContext.Post.find().populate("creator")
+        const posts = await dbContext.Post.find().populate("likeCount creator")
         return posts
     }
     async createPost(newPost) {
-        const post = (await dbContext.Post.create(newPost)).populate("creator")
+        const post = (await dbContext.Post.create(newPost)).populate("likeCount creator")
         return post
     }
 }
