@@ -3,11 +3,11 @@ import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class PostsService {
     async getPostById(postId) {
-        const post = await (await dbContext.Post.findById(postId)).populate("creator")
+        const post = await (await dbContext.Post.findById(postId))
         if (!post) {
             throw new BadRequest(`Could not find this post ${postId}`)
         }
-        return post
+        return post.populate("creator")
     }
     async destroyPost(postToBeDestroyed, userId) {
         const destroyedPost = await dbContext.Post.findById(postToBeDestroyed)
