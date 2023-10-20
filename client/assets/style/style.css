@@ -1,1 +1,18 @@
-/* BASIC STYLES HERE */
+p {
+  margin-bottom: 0;
+}
+
+.header-bar {
+  color: whitesmoke;
+  background-color: #4BA168;
+}
+
+.user-image {
+  aspect-ratio: 1/1;
+  width: 5vw;
+}
+
+.lizard-card {
+  border-radius: 5px;
+  box-shadow: 1px 0px 5px black;
+}
