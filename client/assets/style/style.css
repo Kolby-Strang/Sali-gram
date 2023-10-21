@@ -72,3 +72,9 @@ p {
 .imported-font {
   font-family: 'Permanent Marker'
 }
+
+
+.title-icon {
+  height: 7vh;
+  filter: drop-shadow(0 0 3px white)
+}
