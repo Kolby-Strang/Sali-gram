@@ -1,5 +1,7 @@
 import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
+import { commentsService } from "./CommentsService.js"
+import { likesService } from "./LikesService.js"
 
 class PostsService {
     async getPostById(postId) {
@@ -16,6 +18,14 @@ class PostsService {
         }
         if (destroyedPost.creatorId != userId) {
             throw new Forbidden(`This is not your post`)
+        }
+        const orphanedLikes = await likesService.getLikesByPostId(destroyedPost.id)
+        const orphanedComments = await commentsService.getCommentsByPostId(destroyedPost.id)
+        for (let i = 0; i < orphanedComments.length; i++) {
+            orphanedComments[i].remove()
+        }
+        for (let i = 0; i < orphanedLikes.length; i++) {
+            orphanedLikes[i].remove()
         }
         await destroyedPost.remove()
         return destroyedPost

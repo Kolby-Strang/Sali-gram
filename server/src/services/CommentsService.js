@@ -10,6 +10,7 @@ class CommentsService {
         if (comment.userId != userId) {
             throw new Forbidden('not ur comment to destroy')
         }
+
         await comment.remove()
         return (`Comment ${commentId} is destroyed`)
     }
