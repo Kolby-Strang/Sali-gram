@@ -10,6 +10,7 @@ export class PostsController extends BaseController {
         this.router
             .get('', this.getPosts)
             .get('/:postId', this.getPostById)
+            // .get('/:creatorId/creator', this.getPostsByCyCreatorId)
             .get('/:postId/likes', this.getLikesByPostId)
             .get('/:postId/comments', this.getCommentsByPostId)
             .use(Auth0Provider.getAuthorizedUserInfo)
@@ -76,4 +77,13 @@ export class PostsController extends BaseController {
             next(error)
         }
     }
+    // async getPostsByCyCreatorId(req, res, next) {
+    //     try {
+    //         const creatorId = req.params.creatorId
+    //         const posts = await postsService.getPostsByCreatorId(creatorId)
+    //         return res.send(posts)
+    //     } catch (error) {
+    //         next(error)
+    //     }
+    // }
 }

@@ -4,6 +4,13 @@ import { commentsService } from "./CommentsService.js"
 import { likesService } from "./LikesService.js"
 
 class PostsService {
+    // async getPostsByCreatorId(creatorId) {
+    //     const post = await dbContext.Post.find({ creatorId })
+    //     if (!post) {
+    //         throw new BadRequest(`couldn't find the creatorId: ${creatorId}`)
+    //     }
+    //     return post
+    // }
     async getPostById(postId) {
         const post = await (await dbContext.Post.findById(postId))
         if (!post) {
