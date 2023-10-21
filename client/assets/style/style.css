@@ -13,12 +13,13 @@ p {
   position: absolute;
   top: 10px;
   right: 10px;
+  box-shadow: -1px 1px 5px rgb(255, 0, 212);
 }
 
 .lizard-card {
   border-radius: 5px;
   box-shadow: 1px 0px 5px black;
-  height: 100%
+  height: 100%;
 }
 
 .modal-dialog {
