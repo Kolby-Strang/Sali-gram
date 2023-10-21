@@ -18,7 +18,8 @@ p {
 .lizard-card {
   border-radius: 5px;
   box-shadow: 1px 0px 5px black;
-  height: 100%
+  height: 100%;
+  background-color: white;
 }
 
 .modal-dialog {
@@ -39,4 +40,10 @@ p {
 .user-image {
   aspect-ratio: 1/1;
   width: 20%;
+}
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1599220144359-d4b723bd476d?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGZvcmVzdHxlbnwwfHwwfHx8MA%3D%3D');
+  background-position: center;
+  background-size: cover;
 }
