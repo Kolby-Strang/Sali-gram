@@ -47,7 +47,7 @@ export class Post {
   get activePostTemplate() {
     let deleteButton = ''
     // @ts-ignore
-    if (AppState.account.id == this.creatorId) deleteButton = `<button onclick="app.PostsController.destroyPost('${this.id}')" class="btn btn-danger me-4"><i class="mdi mdi-delete"></i></button>`
+    if (AppState.account?.id == this.creatorId) deleteButton = `<button onclick="app.PostsController.destroyPost('${this.id}')" class="btn btn-danger me-4"><i class="mdi mdi-delete"></i></button>`
     return `
     <div class="modal-header">
       <h5 class="modal-title" id="createSaliModalLabel">
