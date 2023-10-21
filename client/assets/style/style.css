@@ -1,3 +1,9 @@
+body {
+  background-image: url('https://images.unsplash.com/photo-1599220144359-d4b723bd476d?auto=format&fit=crop0&w=2000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGZvcmVzdHxlbnwwfHwwfHx8MA%3D%3D');
+  background-position: center;
+  background-size: cover;
+}
+
 p {
   margin-bottom: 0;
 }
@@ -13,18 +19,19 @@ p {
   position: absolute;
   top: 10px;
   right: 10px;
-  box-shadow: -1px 1px 5px rgb(255, 0, 212);
+  box-shadow: -1px 1px 5px rgb(20, 131, 4);
 }
 
 .lizard-card {
   border-radius: 5px;
   box-shadow: 1px 0px 5px black;
   height: 100%;
-  background-color: white;
+  background-color: rgba(239, 239, 239, 0.407);
+  backdrop-filter: blur(4px);
 }
 
 .modal-dialog {
-  min-width: 60vw;
+  min-width: 80vw;
 }
 
 .sally-picture {
@@ -43,8 +50,16 @@ p {
   width: 20%;
 }
 
-body {
-  background-image: url('https://images.unsplash.com/photo-1599220144359-d4b723bd476d?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGZvcmVzdHxlbnwwfHwwfHx8MA%3D%3D');
-  background-position: center;
-  background-size: cover;
+.comment-card {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.371);
+  border-radius: 8px;
+  padding: .5em;
+  box-shadow: inset -1px 1px 5px rgb(31, 31, 31);
+}
+
+
+.frosted-glass {
+  background-color: rgba(155, 155, 155, 0.407);
+  backdrop-filter: blur(8px);
 }

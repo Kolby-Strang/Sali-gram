@@ -50,7 +50,7 @@ export class Post {
     // @ts-ignore
     if (AppState.account?.id == this.creatorId) deleteButton = `<button onclick="app.PostsController.destroyPost('${this.id}')" class="btn btn-danger me-4"><i class="mdi mdi-delete"></i></button>`
     return `
-    <div class="modal-header">
+    <div class="modal-header text-light">
       <h5 class="modal-title" id="createSaliModalLabel">
         <div class="d-flex justify-content-between align-items-center py-2">
           <img class="rounded-circle user-image"
@@ -68,21 +68,21 @@ export class Post {
     <div class="modal-body">
       <div class="container-fluid">
         <section class="row">
-          <div class="col-8">
-            <img class="img-fluid"
+          <div class="col-4 col-sm-6 col-md-8">
+            <img class="img-fluid rounded w-100"
               src="${this.image}"
               alt="${this.title}">
           <section class="row">      
             <div class="col-12 py-2">
-              <p>${this.body}</p>
+              <p class="fs-4 text-light">${this.body}</p>
             </div>
           </section>
         </div>
-        <div class="col-4">
-          <h2>Comments</h2>
-          <form onsubmit="app.PostsController.createComment(event)">
+        <div class="col-8 col-sm-6 col-md-4">
+          <h2 class="text-light">Comments</h2>
+          <form onsubmit="app.PostsController.createComment(event)" class="d-flex align-items-center w-100">
             <input type="text" id="commentBody" name="body" minlength="1" maxlength="300">
-            <button type="submit" class="btn btn-primary">+</button>
+            <button type="submit" class="btn text-light fs-2"><i class="mdi mdi-plus"></i></button>
           </form>
           <section class="row">
             ${this.commentsTemplate}
@@ -99,16 +99,18 @@ export class Post {
     AppState.comments.forEach(comment => {
 
       let deleteButton = ''
-      if (AppState.account?.id == comment.userId) deleteButton = `<button onclick="app.PostsController.destroyComment('${comment.id}')" class="btn"><i class=" mdi mdi-delete text-danger"></i></button>`
+      if (AppState.account?.id == comment.userId) deleteButton = `<button onclick="app.PostsController.destroyComment('${comment.id}')" class="btn btn-danger"><i class="text-light mdi mdi-delete"></i></button>`
       content += `
-    <div class="col-12 card p-2 my-1">
-      <div class="d-flex align-items-center">
-        <img class="rounded-circle user-image"
-        src="${comment.creator.picture}"
-        alt="">
-        <p class="ms-2">
-          ${comment.body}
-        </p>
+    <div class="col-12 p-2 my-1">
+      <div class="d-flex align-items-center justify-content-between comment-card">
+        <div class="d-flex align-items-center">
+          <img class="rounded-circle user-image"
+            src="${comment.creator.picture}"
+            alt="">
+          <p class="ms-2">
+            ${comment.body}
+          </p>
+        </div>
         <div>
           ${deleteButton}
         </div>
