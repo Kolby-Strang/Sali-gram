@@ -4,6 +4,12 @@ import { api } from "./AxiosService.js"
 
 
 class PostsService {
+    changeSortMethod(type) {
+        AppState.sortMethod = type
+    }
+    changeSortBy(type) {
+        AppState.sortBy = type
+    }
     async destroyComment(commentId) {
         await api.delete(`api/comments/${commentId}`)
         const comments = AppState.comments

@@ -12,7 +12,18 @@ function _drawActivePost() {
 
 function _drawPosts() {
   const posts = AppState.posts
-  posts.sort((postA, postB) => postB.likeCount - postA.likeCount)
+  if (AppState.sortBy == 'likes') {
+    if (AppState.sortMethod == 'descending') {
+      posts.sort((postA, postB) => postB.likeCount - postA.likeCount)
+    } else {
+      posts.sort((postA, postB) => postA.likeCount - postB.likeCount)
+    }
+  } else {
+    if (AppState.sortMethod == 'descending') {
+      posts.reverse()
+    }
+  }
+
   let content = ''
   posts.forEach(post => content += post.postCardTemplate)
   setHTML('posts', content)
@@ -100,5 +111,14 @@ export class PostsController {
       Pop.error(error)
       console.log(error);
     }
+  }
+
+  changeSortBy(type) {
+    postsService.changeSortBy(type)
+    _drawPosts()
+  }
+  changeSortMethod(type) {
+    postsService.changeSortMethod(type)
+    _drawPosts()
   }
 }

@@ -28,15 +28,24 @@
 
       <!-- Search Div -->
       <div class="col-12 col-sm-6 col-md-4 order-md-0 order-1">
-        <form class="d-flex me-5 align-items-center" onsubmit="app.PostsController.findPost(event)">
-          <div>
-            <input name="search" type="text" id="search" required minlength="1" maxlength="30"
-              placeholder="Search Not Implemented">
-          </div>
-          <div>
-            <button class="btn" type="submit"><i class="text-light mdi mdi-magnify"></i></button>
-          </div>
-        </form>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Sort By
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <p class="ps-1">Sort by:</p>
+            <li><a class="dropdown-item" onclick="app.PostsController.changeSortBy('likes')">Likes</a></li>
+            <li><a class="dropdown-item" onclick="app.PostsController.changeSortBy('date')">Date</a></li>
+            <br>
+            <p class="ps-1">Sort method:</p>
+            <li><a class="dropdown-item" onclick="app.PostsController.changeSortMethod('ascending')">Ascending</a></li>
+            <li><a class="dropdown-item" onclick="app.PostsController.changeSortMethod('descending')">Descending</a>
+            </li>
+          </ul>
+
+
+        </div>
       </div>
 
 

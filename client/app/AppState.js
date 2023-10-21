@@ -20,6 +20,9 @@ class ObservableAppState extends EventEmitter {
 
   comments = []
 
+  sortBy = 'likes'
+  sortMethod = 'descending'
+
 
   /** @type {import('./models/Post.js').Post | null} */
   activePost = null
