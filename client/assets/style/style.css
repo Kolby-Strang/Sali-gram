@@ -64,7 +64,7 @@ p {
   backdrop-filter: blur(8px);
 }
 
-.navColor {
+.nav-color {
   background-color: rgba(18, 17, 17, 0.966);
   box-shadow: -5px 1px 5px rgb(31, 31, 31)
 }
