@@ -18,7 +18,7 @@ p {
 .lizard-card {
   border-radius: 5px;
   box-shadow: 1px 0px 5px black;
-  height: 50vh
+  height: 100%
 }
 
 .modal-dialog {

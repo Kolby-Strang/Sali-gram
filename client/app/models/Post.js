@@ -28,12 +28,12 @@ export class Post {
             alt="user">
         </div>
 
-          <div class="row h-25 py-3 px-4 d-flex justify-content-between align-items-center">
-            <div class="col-12 col-md-10">
+          <div class="row py-3 px-4 d-flex justify-content-between align-items-start">
+            <div class="col-12 col-md-9 col-lg-8">
               <p class="fs-3 word-wrap">${this.title}</p>
               <p>Posted at ${this.createdAt.toLocaleDateString()}</p>
             </div>
-            <div class="col-12 col-md-2">
+            <div class="col-12 col-md-3 col-lg-4 text-end">
               <button onclick="app.LikesController.likePost('${this.id}')" class="btn btn-outline-danger">
                 <i class="mdi mdi-heart">${this.likeCount}</i>
               </button>
