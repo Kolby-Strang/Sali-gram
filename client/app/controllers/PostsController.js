@@ -12,6 +12,7 @@ function _drawActivePost() {
 
 function _drawPosts() {
   const posts = AppState.posts
+  posts.sort((postA, postB) => postB.likeCount - postA.likeCount)
   let content = ''
   posts.forEach(post => content += post.postCardTemplate)
   setHTML('posts', content)
