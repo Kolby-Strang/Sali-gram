@@ -11,11 +11,13 @@ function _drawActivePost() {
 }
 
 function _drawPosts() {
-  const posts = AppState.posts
+  const posts = Object.assign([], AppState.posts)
   if (AppState.sortBy == 'likes') {
     if (AppState.sortMethod == 'descending') {
+      // @ts-ignore
       posts.sort((postA, postB) => postB.likeCount - postA.likeCount)
     } else {
+      // @ts-ignore
       posts.sort((postA, postB) => postA.likeCount - postB.likeCount)
     }
   } else {
@@ -25,6 +27,7 @@ function _drawPosts() {
   }
 
   let content = ''
+  // @ts-ignore
   posts.forEach(post => content += post.postCardTemplate)
   setHTML('posts', content)
 }
