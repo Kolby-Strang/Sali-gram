@@ -19,9 +19,8 @@ export class Post {
     return `
     <div class="col-lg-4 col-xl-3 col-md-6 col-12 mt-2">
       <div class="lizard-card">
-        <div class="position-relative">
+        <div class="position-relative selectable" onclick="app.PostsController.setActivePost('${this.id}')" role="button">
           <img class="img-fluid sally-picture"
-            onclick="app.PostsController.setActivePost('${this.id}')"
             src="${this.image}"
             alt="${this.title}">
           <img class="rounded-circle user-image-absolute"
