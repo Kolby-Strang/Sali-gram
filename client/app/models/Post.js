@@ -99,7 +99,7 @@ export class Post {
     AppState.comments.forEach(comment => {
 
       let deleteButton = ''
-      if (AppState.account?.id == comment.userId) deleteButton = `<button onclick="app.PostsController.destroyComment('${comment.id}')" class="btn btn-danger"><i class="text-light mdi mdi-delete"></i></button>`
+      if (AppState.account?.id == comment.userId) deleteButton = `<button onclick="app.PostsController.destroyComment('${comment.id}')" class="btn btn-danger align-self-start"><i class="text-light mdi mdi-delete"></i></button>`
       content += `
     <div class="col-12 p-2 my-1">
       <div class="d-flex align-items-center justify-content-between comment-card">
@@ -107,7 +107,7 @@ export class Post {
           <img class="rounded-circle user-image"
             src="${comment.creator.picture}"
             alt="">
-          <p class="ms-2">
+          <p class="ms-2 word-wrap">
             ${comment.body}
           </p>
         </div>
