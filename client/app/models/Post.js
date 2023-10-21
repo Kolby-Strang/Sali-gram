@@ -28,17 +28,19 @@ export class Post {
             src="${this.creator.picture}"
             alt="user">
         </div>
-        <div class="h-25 py-3 px-4 d-flex justify-content-between align-items-center">
-          <div>
-            <p class="fs-3 word-wrap">${this.title}</p>
-            <p>Posted at ${this.createdAt.toLocaleDateString()}</p>
+
+          <div class="row h-25 py-3 px-4 d-flex justify-content-between align-items-center">
+            <div class="col-12 col-md-10">
+              <p class="fs-3 word-wrap">${this.title}</p>
+              <p>Posted at ${this.createdAt.toLocaleDateString()}</p>
+            </div>
+            <div class="col-12 col-md-2">
+              <button onclick="app.LikesController.likePost('${this.id}')" class="btn btn-outline-danger">
+                <i class="mdi mdi-heart">${this.likeCount}</i>
+              </button>
+            </div>
           </div>
-          <div>
-          <button onclick="app.LikesController.likePost('${this.id}')" class="btn btn-outline-danger">
-            <i class="mdi mdi-heart">${this.likeCount}</i>
-          </button>
-          </div>
-        </div>
+
       </div>
     </div>
     `
