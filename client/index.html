@@ -22,12 +22,12 @@
 
 <body>
   <!-- SECTION -->
-  <header class="container-fluid p-0 nav-color p-2">
+  <header class="container-fluid nav-color py-2">
     <div class="row align-items-center">
 
 
       <!-- Search Div -->
-      <div class="col-6 col-md-4 order-md-0 order-1">
+      <div class="col-12 col-sm-6 col-md-4 order-md-0 order-1">
         <form class="d-flex me-5 align-items-center" onsubmit="app.PostsController.findPost(event)">
           <div>
             <input name="search" type="text" id="search" required minlength="1" maxlength="30"
@@ -47,7 +47,7 @@
       </div>
 
       <!-- AUTH -->
-      <div class="col-6 col-md-4 order-2">
+      <div class="col-12 col-sm-6 col-md-4 order-2">
         <div class="d-flex justify-content-end">
           <button type="button" class="btn btn-warning mx-4" data-bs-toggle="modal" data-bs-target="#createSaliModal">
             <i class="mdi mdi-plus"></i>
