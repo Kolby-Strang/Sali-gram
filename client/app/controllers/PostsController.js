@@ -78,6 +78,10 @@ export class PostsController {
 
   async destroyComment(commentId) {
     try {
+      const wantToDelete = await Pop.confirm('Are you sure you want to delete this post?')
+      if (!wantToDelete) {
+        return
+      }
       await postsService.destroyComment(commentId)
     } catch (error) {
       Pop.error(error)
