@@ -80,10 +80,10 @@ export class Post {
         </div>
         <div class="col-8 col-sm-6 col-md-4">
           <h2 class="text-light">Comments</h2>
-          <form onsubmit="app.PostsController.createComment(event)" class="d-flex align-items-center w-100">
-            <input type="text" id="commentBody" name="body" minlength="1" maxlength="300">
-            <button type="submit" class="btn text-light fs-2"><i class="mdi mdi-plus"></i></button>
-          </form>
+          ${AppState.account ? `<form onsubmit="app.PostsController.createComment(event)" class="d-flex align-items-center w-100">
+          <input type="text" id="commentBody" name="body" minlength="1" maxlength="300">
+          <button type="submit" class="btn text-light fs-2"><i class="mdi mdi-plus"></i></button>
+        </form>` : ''}
           <section class="row">
             ${this.commentsTemplate}
           </section>
