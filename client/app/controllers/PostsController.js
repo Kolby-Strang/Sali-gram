@@ -32,12 +32,18 @@ function _drawPosts() {
   setHTML('posts', content)
 }
 
+function _showAddButton() {
+  const addButtonElem = document.getElementById('add-post-button')
+  addButtonElem?.classList.remove('d-none')
+}
+
 
 export class PostsController {
   constructor() {
     this.getPosts()
     AppState.on('posts', _drawPosts)
     AppState.on('comments', _drawActivePost)
+    AppState.on('account', _showAddButton)
   }
 
 
